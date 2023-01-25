@@ -12,14 +12,14 @@ function acertar(){
     alert("Has acertado!");
 }
 
-function errar(x){
+function errar(x, correcto){
     let resto = 3 - x;
     if(resto != 1 && resto != 0){
     alert("No has acertado, te quedan " + resto + " oportunidades");
     }else if(resto == 1){
         alert("No has acertado, te queda " + resto + " oportunidadad");
     }else{
-        alert("No has acertado, por lo tanto no sumas puntos en esta ronda");
+        alert("El campeón era " + correcto + ". No has acertado, por lo tanto no sumas puntos en esta ronda");
     }
 }
 
@@ -50,7 +50,7 @@ function adivinarCampeon(tipo){
                         acertar();
                         break;
                     }else{
-                        errar(i);
+                        errar(i, tirador);
                     }
                     puntos = puntos - 10;
                 }
@@ -70,7 +70,7 @@ function adivinarCampeon(tipo){
                         acertar();
                         break;
                     }else{
-                        errar(i);
+                        errar(i, soporte);
                     }
                     puntos = puntos - 10;
                 }
@@ -89,7 +89,7 @@ function adivinarCampeon(tipo){
                         acertar();
                         break;
                     }else{
-                        errar(i);
+                        errar(i, mago);
                     }
                     puntos = puntos - 10;
                 }
