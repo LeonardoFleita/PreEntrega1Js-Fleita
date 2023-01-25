@@ -1,6 +1,6 @@
 let gano = 0;
-let tirador = "lucian";
-let support = "nami";
+let tirador = "vayne";
+let soporte = "nami";
 let mago = "zoe";
 let campeonIngresado = "";
 let primeraRonda = 0;
@@ -15,9 +15,9 @@ function acertar(){
 function errar(x){
     let resto = 3 - x;
     if(resto != 1 && resto != 0){
-    alert("te quedan " + resto + " oportunidades");
+    alert("No has acertado, te quedan " + resto + " oportunidades");
     }else if(resto == 1){
-        alert("te queda " + resto + " oportunidadad");
+        alert("No has acertado, te queda " + resto + " oportunidadad");
     }else{
         alert("No has acertado, por lo tanto no sumas puntos en esta ronda");
     }
@@ -25,26 +25,26 @@ function errar(x){
 
 function resultado(x){
     if(x >= 0 && x < 30){
-        alert("Su puntaje es bajo, debe aprender más")
+        alert("Tu puntaje es bajo, debes aprender más")
     }else if(x >= 30 && x < 60){
-        alert("Su puntaje es regular")
+        alert("Tu puntaje es regular")
     }else{
-        alert("Su puntaje es alto, felicitaciones!")
+        alert("Tu puntaje es alto, felicitaciones!")
     }
 }
 
 function adivinarCampeon(tipo){
-    alert("Adivine el campeón " + tipo + " de league of legends, tiene 3 intentos. Utilice siempre minúsculas");
+    alert("Adivina el campeón " + tipo + " de league of legends, tienes 3 intentos. Utiliza siempre minúsculas");
     let puntos = 30;
         switch(tipo){
             case "tirador" :
                 for(let i = 1; i < 4; i++){
                     if (i == 1){
-                        campeonIngresado = prompt("¿Cuál es el campeón?")
+                        campeonIngresado = prompt("¿Cuál es el campeón? Primera pista... tiene desplazamiento");
                         }else if(i == 2){
-                        campeonIngresado = prompt("¿Cuál es el campeón? Una pista... tiene desplazamientos");
+                        campeonIngresado = prompt("¿Cuál es el campeón? Segunda pista... tiene invisibilidad");
                         }else{
-                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... tiene pistolas"); 
+                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... saca más al tercer ataque"); 
                     }
                     if(campeonIngresado == tirador){
                         acertar();
@@ -57,16 +57,16 @@ function adivinarCampeon(tipo){
 
                 break;
 
-            case "support" :
+            case "soporte" :
                 for(let i = 1; i < 4; i++){
                     if (i == 1){
-                        campeonIngresado = prompt("¿Cuál es el campeón?")
+                        campeonIngresado = prompt("¿Cuál es el campeón? Primera pista... cura");
                         }else if(i == 2){
-                        campeonIngresado = prompt("¿Cuál es el campeón? Una pista... cura y tiene cc");
+                        campeonIngresado = prompt("¿Cuál es el campeón? Segunda pista... tiene control de masas");
                         }else{
-                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... tira burbujas"); 
+                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... ella decide lo que traerá la marea"); 
                     }
-                    if(campeonIngresado == support){
+                    if(campeonIngresado == soporte){
                         acertar();
                         break;
                     }else{
@@ -79,11 +79,11 @@ function adivinarCampeon(tipo){
             case "mago" : 
                 for(let i = 1; i < 4; i++){
                     if (i == 1){
-                        campeonIngresado = prompt("¿Cuál es el campeón?")
+                        campeonIngresado = prompt("¿Cuál es el campeón? Primera pista... tiene inmovilización");
                         }else if(i == 2){
-                        campeonIngresado = prompt("¿Cuál es el campeón? Una pista... atraviesa portales");
+                        campeonIngresado = prompt("¿Cuál es el campeón? Segunda pista... roba hechizos");
                         }else{
-                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... juega al ping pong"); 
+                        campeonIngresado = prompt("¿Cuál es el campeón? Última pista... atraviesa portales"); 
                     }
                     if(campeonIngresado == mago){
                         acertar();
@@ -98,18 +98,23 @@ function adivinarCampeon(tipo){
     return puntos;
     }
 
+let jugador = prompt("Ingresa tu nombre");
+alert("Bienvenid@ al juego " + jugador);
+alert("Primera ronda");
 primeraRonda = adivinarCampeon("tirador");
-alert("Usted ha obtenido " + primeraRonda + " puntos");
+alert(jugador + " has obtenido " + primeraRonda + " puntos en esta ronda");
 let puntajeTotal = primeraRonda;
-alert("Su puntaje total es de " + puntajeTotal + " puntos")
-segundaRonda = adivinarCampeon("support");
-alert("Usted ha obtenido " + segundaRonda + " puntos");
+alert("Tu puntaje total por el momento es de " + puntajeTotal + " puntos");
+alert("Segunda ronda");
+segundaRonda = adivinarCampeon("soporte");
+alert(jugador + " has obtenido " + segundaRonda + " puntos en esta ronda");
 puntajeTotal = puntajeTotal + segundaRonda;
-alert("Su puntaje total es de " + puntajeTotal + " puntos")
+alert("Tu puntaje total por el momento es de " + puntajeTotal + " puntos");
+alert("Tercera ronda");
 terceraRonda = adivinarCampeon("mago");
-alert("Usted ha obtenido " + terceraRonda + " puntos");
+alert(jugador + " Has obtenido " + terceraRonda + " puntos en esta ronda");
 puntajeTotal = puntajeTotal + terceraRonda;
-alert("Su puntaje total es de " + puntajeTotal + " puntos");
+alert("Tu puntaje total es de " + puntajeTotal + " puntos");
 resultado(puntajeTotal);
 
 
