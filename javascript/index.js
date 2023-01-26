@@ -99,22 +99,27 @@ function adivinarCampeon(tipo){
     }
 
 let jugador = prompt("Ingresa tu nombre");
+console.log("Jugador: " + jugador);
 alert("Bienvenid@ al juego " + jugador);
 alert("Primera ronda");
 primeraRonda = adivinarCampeon("tirador");
 alert(jugador + " has obtenido " + primeraRonda + " puntos en esta ronda");
+console.log("Primera ronda " + primeraRonda + " puntos");
 let puntajeTotal = primeraRonda;
 alert("Tu puntaje total por el momento es de " + puntajeTotal + " puntos");
 alert("Segunda ronda");
 segundaRonda = adivinarCampeon("soporte");
 alert(jugador + " has obtenido " + segundaRonda + " puntos en esta ronda");
+console.log("Segunda ronda " + segundaRonda + " puntos");
 puntajeTotal = puntajeTotal + segundaRonda;
 alert("Tu puntaje total por el momento es de " + puntajeTotal + " puntos");
 alert("Tercera ronda");
 terceraRonda = adivinarCampeon("mago");
 alert(jugador + " Has obtenido " + terceraRonda + " puntos en esta ronda");
+console.log("Tercera ronda " + terceraRonda + " puntos");
 puntajeTotal = puntajeTotal + terceraRonda;
 alert("Tu puntaje total es de " + puntajeTotal + " puntos");
+console.log("Puntaje total " + puntajeTotal + " puntos");
 resultado(puntajeTotal);
 
 
